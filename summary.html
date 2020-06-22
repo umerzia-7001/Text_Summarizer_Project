@@ -1,0 +1,60 @@
+<!DOCTYPE html> 
+ 
+<html lang="en"> 
+ 
+<head> 
+	<meta charset="utf-8"> 
+ 
+	<title>Text Summarizer</title> 
+	
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/summarizer.css')}}">
+	<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="/static/js/jquery.tools.range.min.js"></script>
+<script src="/static/js/summarizer.js"></script>
+</head>
+ 
+<body text=#c3073f>
+<div id="header">
+	<div id="tc-logo"><h1 id="logo-text">Text Summarizer</h1></div>
+	<h2>Abstractive text summarizer</h2>
+	
+</div>
+<div id="main">
+
+
+<div id="description">
+	<p>Follow these simple steps to create a summary of your text.</p>
+</div>
+<form method="POST" action="/text">
+	<div class="step">
+		<h3>Step 1 <span id="text-error" class="error"></span></h3>
+		<label for="text_in">Type or paste your text into the box.</label>
+		<textarea cols="60" id="text_in" name="text_in" rows="15"></textarea>
+
+	</div>
+
+	<div class="step">
+
+		<h3>Step 2</h3>
+		<p>Click the Summarize! button.</p>
+		<button type="summerize" name="Summarize">summerize</button>
+
+</div>
+</form>
+
+<div class="step" id="output-step">
+
+	<h3>Step 3</h3>
+	<p> Here is your summary !
+
+	<div id="output">
+	<form method="POST" action="/summarized">
+		{{ summary }}
+	</form>
+	</div>
+
+</div>
+
+</div>
+</body> 
+</html> 
